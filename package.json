@@ -1,0 +1,16 @@
+{
+  "name": "mongodb",
+  "version": "0.1.0",
+  "description": "Intro to MongoDB",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mia Frattasio",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.2",
+    "mongodb": "^6.13.0"
+  },
+  "devDependencies": {}
+}

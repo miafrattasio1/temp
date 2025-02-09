@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Book Collection</title>
+    <meta charset="utf-8">
+    <script src="js/main.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+<body class="bg-yellow-100 font-serif">
+
+<div class="min-h-screen p-8">
+    <div class="max-w-4xl mx-auto bg-yellow-50 p-8 rounded-lg border-4 border-yellow-900">
+        <h1 class="text-4xl font-bold text-center text-yellow-900 mb-4">Book Collection</h1>
+
+        <h2 class="text-xl text-yellow-900 mb-4">User: <span id="username" class="font-semibold text-yellow-900"></span></h2>
+
+        <button id="logout-btn" class="bg-yellow-900 text-white px-4 py-2 rounded-lg mb-4">Log Out</button>
+
+        <form id="book-form" class="space-y-4">
+            <div>
+                <label for="title" class="block text-lg text-yellow-900 mb-2">Book Title</label>
+                <input type="text" id="title" required class="w-full px-4 py-2 border border-yellow-900 rounded-lg" />
+            </div>
+
+            <div>
+                <label for="author" class="block text-lg text-yellow-800 mb-2">Author</label>
+                <input type="text" id="author" required class="w-full px-4 py-2 border border-yellow-900 rounded-lg" />
+            </div>
+
+            <div>
+                <label for="genre" class="block text-lg text-yellow-800 mb-2">Genre</label>
+                <input type="text" id="genre" required class="w-full px-4 py-2 border border-yellow-900 rounded-lg" />
+            </div>
+
+            <div>
+                <label class="block text-lg text-yellow-800 mb-2">Rating (if read)</label>
+                <div class="flex space-x-4">
+                    <input type="radio" id="rating1" name="rating" value="1" class="w-5 h-5" />
+                    <label for="rating1" class="text-yellow-800">1</label>
+
+                    <input type="radio" id="rating2" name="rating" value="2" class="w-5 h-5" />
+                    <label for="rating2" class="text-yellow-800">2</label>
+
+                    <input type="radio" id="rating3" name="rating" value="3" class="w-5 h-5" />
+                    <label for="rating3" class="text-yellow-800">3</label>
+
+                    <input type="radio" id="rating4" name="rating" value="4" class="w-5 h-5" />
+                    <label for="rating4" class="text-yellow-800">4</label>
+
+                    <input type="radio" id="rating5" name="rating" value="5" class="w-5 h-5" />
+                    <label for="rating5" class="text-yellow-800">5</label>
+                </div>
+            </div>
+
+            <div class="flex justify-between">
+                <button type="submit" class="w-32 py-2 bg-yellow-900 text-white rounded-lg">Submit</button>
+                <button type="submit" id="submit-update" class="w-32 py-2 bg-blue-600 text-white rounded-lg" style="display:none;">Submit Update</button>
+            </div>
+        </form>
+
+        <h2 class="text-2xl font-semibold text-yellow-800 mt-8 mb-4">Book List</h2>
+
+
+        <div class="overflow-auto rounded-lg">
+            <table id="book-list" class="min-w-full table-auto text-sm border-2 border-yellow-900 rounded-lg">
+                <thead>
+                <tr class="bg-yellow-100">
+                    <th class="px-4 py-2 text-left text-yellow-900">Title</th>
+                    <th class="px-4 py-2 text-left text-yellow-900">Author</th>
+                    <th class="px-4 py-2 text-left text-yellow-900">Genre</th>
+                    <th class="px-4 py-2 text-left text-yellow-900">Rating</th>
+                    <th class="px-4 py-2 text-left text-yellow-900">Reading Status</th>
+                    <th class="px-4 py-2 text-left text-yellow-900">Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <!-- Book entries from javascript in main.js -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("username").textContent = localStorage.getItem("username");
+
+    document.getElementById("logout-btn").addEventListener('click', function() {
+        localStorage.removeItem("username");
+        window.location.href = "index.html";
+    });
+</script>
+
+</body>
+</html>
+
+
